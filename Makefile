@@ -1,3 +1,10 @@
+#
+# *** latex-makefile ***
+#
+# Copyright (C) 2013-2014 Martin Wegner
+# Released under the terms of the GNU General Public License, version 3 or newer.
+# website: https://github.com/mittwinter/latex-makefile
+#
 MODES = draft final
 MODE = draft
 
