@@ -35,7 +35,7 @@ BIBTEXFILE := $(wildcard *.bib)
 LANGUAGE = de_DE_frami
 SUBDIRS =
 
-VERSIONTAG := $(shell [ -d .git ] && git describe --all --tags --long || echo none)
+VERSIONTAG := $(shell [ "$(shell git rev-parse --is-inside-work-tree )" = "true" ] && git describe --all --tags --long || echo none)
 PDFLATEXMACROS = \\newcommand{\\versiontag}{$(VERSIONTAG)}
 ifeq "$(MODE)" "draft"
 	PDFLATEXMACROS += \\def\\draft{}
