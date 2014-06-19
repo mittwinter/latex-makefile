@@ -8,12 +8,12 @@
 MODES = draft final
 MODE = draft
 
-ifeq "" "$(MODE)"
-	$(error MODE is not set)
+ifeq '' '$(MODE)'
+  $(error MODE is not set)
 endif
 
-ifneq (, $(filter-out $(MODES), $(MODE)))
-	$(error MODE is none of $(MODES))
+ifneq '' '$(filter-out $(MODES), $(MODE))'
+  $(error MODE is none of $(MODES))
 endif
 
 # Look for "main" latex file that is passed to pdflatex,
