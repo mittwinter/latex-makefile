@@ -57,6 +57,7 @@ all: ${TARGETS}
 $(TARGETS): %.pdf: %.latex ${INPUTS} ${BIBTEXFILE}
 	$(PDFLATEX) $(PDFLATEXFLAGS) $(PDFLATEXMACROS)\\input{$<} \
 		&& ( [ ! -f "${BIBTEXFILE}" ] \
+		     || ! grep -q 'cite{' $< $(INPUTS) \
 		     || ( $(BIBTEX) $(BIBTEXFLAGS) $* \
 		          && $(PDFLATEX) $(PDFLATEXFLAGS) $(PDFLATEXMACROS)\\input{$<} >/dev/null \
 		        ) \
